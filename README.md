@@ -1,2 +1,2 @@
 # Asreyion
-Asreyion is a modular ASP.NET and C#-based website content management system designed to streamline website creation and management.
+Asreyion is a website content management solution built with ASP.NET and C#. It caters to the diverse needs of website administrators by offering a comprehensive suite of features. Users can easily create and manage their content through tools for content creation and layout customization. The system seamlessly integrates modular functionalities, allowing for easy publication and management of dynamic content and interactive elements. Whether configuring intricate website structures or enhancing user engagement through interactive elements, Asreyion is a versatile and powerful toolset for modern website management.
