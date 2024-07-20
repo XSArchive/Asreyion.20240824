@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+   asreyion.service:
+     build: 
+       context: .
+       dockerfile: Dockerfile
+     expose:
+        - 80
+        - 443
+     restart: unless-stopped
+     environment:
+        VIRTUAL_HOST: your.domain.com
+        LETSENCRYPT_HOST: your.domain.com
+        LETSENCRYPT_EMAIL: admin.email@your.domain.com
+        ASPNETCORE_HTTP_PORTS: 80
+        ASPNETCORE_HTTPS_PORTS: 443
+     env_file:
+        - .env
+     container_name: your.container.name
+
+networks:
+  default:
+    external:
+      name: system.nginx.proxy

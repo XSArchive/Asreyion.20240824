@@ -396,3 +396,7 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Ignore Docker files that the user configures, use the default.{filename} files instead for source control.
+.env
+docker-compose.yml

@@ -5,7 +5,14 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "source", "source", "{4BDA3709-A678-4F92-83EE-33C51A6F3C50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asreyion", "source\Asreyion\Asreyion.csproj", "{9E6359DB-B33C-45BD-9164-C96A47F4D86C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asreyion", "source\Asreyion\Asreyion.csproj", "{9E6359DB-B33C-45BD-9164-C96A47F4D86C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7BE9AA3A-0723-4F03-B3D3-914CF426D758}"
+	ProjectSection(SolutionItems) = preProject
+		default.env = default.env
+		Dockerfile = Dockerfile
+		default.docker-compose.yml = default.docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,5 +30,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9E6359DB-B33C-45BD-9164-C96A47F4D86C} = {4BDA3709-A678-4F92-83EE-33C51A6F3C50}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D0DBA0B-08C1-4B74-91E5-EC50E3582443}
 	EndGlobalSection
 EndGlobal
