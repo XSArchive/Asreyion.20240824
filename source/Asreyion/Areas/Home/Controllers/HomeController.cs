@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace Asreyion.Controllers;
+
+[Area("Home")]
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
