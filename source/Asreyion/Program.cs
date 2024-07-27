@@ -1,27 +1,25 @@
+using Asreyion.Framework.Modules;
+using Asreyion.Framework.Themes;
+
+ModuleManager moduleManager = new ModuleManager().Discover() as ModuleManager ?? throw new NullReferenceException();
+ThemeManager themeManager = new ThemeManager().Discover() as ThemeManager ?? throw new NullReferenceException();
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-_ = builder.Services.AddControllersWithViews();
+_ = moduleManager.Execute((module, builder) => module.RegisterControllers(builder), builder);
 
 WebApplication app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    _ = app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    _ = app.UseHsts();
-}
+_ = moduleManager.Execute((module, app) => module.ConfigureEnvironment(app), app);
 
-_ = app.UseHttpsRedirection();
-_ = app.UseStaticFiles();
+_ = moduleManager.Execute((module, app) => module.ConfigureHttps(app), app);
 
-_ = app.UseRouting();
+_ = moduleManager.Execute((module, app) => module.ConfigureFiles(app), app);
 
-_ = app.UseAuthorization();
+_ = moduleManager.Execute((module, app) => module.ConfigureRouting(app), app);
 
-_ = app.MapControllerRoute(
-    name: "default",
-    pattern: "{area=Home}/{controller=Home}/{action=Index}/{id?}");
+_ = moduleManager.Execute((module, app) => module.ConfigureAuthorization(app), app);
+
+_ = moduleManager.Execute((module, app) => module.MapRoutes(app), app);
 
 app.Run();
