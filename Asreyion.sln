@@ -9,10 +9,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asreyion", "source\Asreyion
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7BE9AA3A-0723-4F03-B3D3-914CF426D758}"
 	ProjectSection(SolutionItems) = preProject
+		default.docker-compose.yml = default.docker-compose.yml
 		default.env = default.env
 		Dockerfile = Dockerfile
-		default.docker-compose.yml = default.docker-compose.yml
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libraries", "libraries", "{B4ED8D80-948E-410D-A6F8-E0EB654AD7EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asreyion.Framework", "source\libraries\Asreyion.Framework\Asreyion.Framework.csproj", "{02DAA696-C157-4664-88ED-1B28B4A44A35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,12 +28,18 @@ Global
 		{9E6359DB-B33C-45BD-9164-C96A47F4D86C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E6359DB-B33C-45BD-9164-C96A47F4D86C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E6359DB-B33C-45BD-9164-C96A47F4D86C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02DAA696-C157-4664-88ED-1B28B4A44A35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02DAA696-C157-4664-88ED-1B28B4A44A35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02DAA696-C157-4664-88ED-1B28B4A44A35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02DAA696-C157-4664-88ED-1B28B4A44A35}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9E6359DB-B33C-45BD-9164-C96A47F4D86C} = {4BDA3709-A678-4F92-83EE-33C51A6F3C50}
+		{B4ED8D80-948E-410D-A6F8-E0EB654AD7EF} = {4BDA3709-A678-4F92-83EE-33C51A6F3C50}
+		{02DAA696-C157-4664-88ED-1B28B4A44A35} = {B4ED8D80-948E-410D-A6F8-E0EB654AD7EF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0D0DBA0B-08C1-4B74-91E5-EC50E3582443}
