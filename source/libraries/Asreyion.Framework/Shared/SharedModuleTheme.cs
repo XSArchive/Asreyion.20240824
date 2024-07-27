@@ -1,4 +1,5 @@
-﻿using Asreyion.Framework.Shared.Interfaces;
+﻿using Asreyion.Framework.Enumerations;
+using Asreyion.Framework.Shared.Interfaces;
 
 namespace Asreyion.Framework.Shared;
 
@@ -6,6 +7,8 @@ public abstract class SharedModuleTheme : ISharedModuleTheme
 {
     private readonly HashSet<string> executedFunctions = [];
     private bool disposedValue;
+
+    public abstract Priority Priority { get; }
 
     ~SharedModuleTheme()
     {

@@ -5,7 +5,7 @@ namespace Asreyion.Framework.Shared;
 
 public abstract class SharedManager<TManagedType> : ISharedManager<TManagedType> where TManagedType : class
 {
-    private readonly List<TManagedType> managedObjects = [];
+    protected readonly List<TManagedType> managedObjects = [];
     private bool disposedValue;
 
     ~SharedManager()
@@ -31,7 +31,7 @@ public abstract class SharedManager<TManagedType> : ISharedManager<TManagedType>
             _ = this.Discover(Assembly.Load(assembly));
         }
 
-        return this;
+        return this.Sort();
     }
 
     public virtual ISharedManager<TManagedType> Discover(Assembly assembly)
@@ -57,7 +57,7 @@ public abstract class SharedManager<TManagedType> : ISharedManager<TManagedType>
             }
         }
 
-        return this;
+        return this.Sort();
     }
 
     protected virtual void Dispose(bool disposing)
@@ -118,4 +118,6 @@ public abstract class SharedManager<TManagedType> : ISharedManager<TManagedType>
 
         return this;
     }
+
+    public abstract ISharedManager<TManagedType> Sort();
 }
