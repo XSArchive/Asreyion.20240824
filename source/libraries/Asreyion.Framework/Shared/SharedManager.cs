@@ -66,7 +66,7 @@ public abstract class SharedManager<TManagedType> : ISharedManager<TManagedType>
     public virtual ISharedManager<TManagedType> Discover()
     {
         // Register managed managed objects from the executing assembly.
-        _ = this.Discover(Assembly.GetExecutingAssembly());
+        _ = this.Discover(Assembly.GetEntryAssembly() ?? Assembly.GetCallingAssembly());
 
         // Find all of the assemblies the executing assembly references.
         foreach (AssemblyName assembly in Assembly.GetExecutingAssembly().GetReferencedAssemblies())
@@ -102,11 +102,15 @@ public abstract class SharedManager<TManagedType> : ISharedManager<TManagedType>
         {
             try
             {
-                // Attempt to create an instace of the type.
-                if (Activator.CreateInstance(type) is TManagedType instance)
+                // Check to see if the type has already been registered.
+                if (!this.managedObjects.Any(t => t.GetType().Equals(type)))
                 {
-                    // Store the activated type in the collection.
-                    this.managedObjects.Add(instance);
+                    // Attempt to create an instace of the type.
+                    if (Activator.CreateInstance(type) is TManagedType instance)
+                    {
+                        // Store the activated type in the collection.
+                        this.managedObjects.Add(instance);
+                    }
                 }
             }
             catch (Exception ex)
